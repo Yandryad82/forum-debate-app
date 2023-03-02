@@ -3,6 +3,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const db = require('./utils/database');
 const initModels = require('./models/initModels');
+const userRoutes = require('./routes/users.routes');
 
 initModels();
 const app = express();
@@ -18,11 +19,13 @@ db.authenticate()
   })
   .catch((error) => console.log(error));
 
-  db.sync({force: true})
+  db.sync({alter: false})
   .then(() => {
     console.log('Database synced...');
   })
   .catch((error) => console.log(error));
+
+  app.use(userRoutes);
 
 app.get('/', (req, res) => {
   res.send('Welcome to my API!');
@@ -31,3 +34,4 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
+

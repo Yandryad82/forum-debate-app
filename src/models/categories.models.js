@@ -13,6 +13,8 @@ const Category = db.define('categories', {
     type: DataTypes.STRING(30),
     allowNull: false
   },
+}, {
+  timestamps: false,
 });
 
 module.exports = Category;

@@ -29,6 +29,7 @@ const Post = db.define('posts', {
 },{
   timestamps: true,
   updatedAt: false,
+  createdAt: 'posted_at',
 });
 
 module.exports = Post;
