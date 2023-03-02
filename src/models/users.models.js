@@ -12,10 +12,10 @@ const User = db.define('users', {
   name: {
     type: DataTypes.STRING(30),
     allowNull: false
-  };
+  },
   lastname: {
     type: DataTypes.STRING(30),
-  };
+  },
   username: {
     type: DataTypes.STRING(30),
     unique: true,
@@ -34,3 +34,5 @@ const User = db.define('users', {
     allowNull: false
   }
 });
+
+module.exports = User;
